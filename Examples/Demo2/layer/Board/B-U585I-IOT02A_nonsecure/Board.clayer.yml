@@ -1,0 +1,69 @@
+layer:
+  type: Board
+  # name: B-U585I-IOT02A
+  # variant: IoT-WiFi
+  description: Board setup for IoT with WiFi interface
+  for-board: STMicroelectronics::B-U585I-IOT02A
+  processor:
+    trustzone: non-secure
+
+  connections:
+    - connect: B-U585I-IOT02A Board
+      consumes:
+        - CMSIS-RTOS2
+      provides:
+        - CMSIS_WiFi: 0
+        - CMSIS_USB_Device: 0
+        - CMSIS_VIO
+        - ARDUINO_UNO_UART: 3
+        - ARDUINO_UNO_SPI: 1
+        # - ARDUINO_UNO_I2C: 1
+        - ARDUINO_UNO_D2
+        - ARDUINO_UNO_D3
+        - ARDUINO_UNO_D4
+        - ARDUINO_UNO_D5
+        - ARDUINO_UNO_D6
+        - ARDUINO_UNO_D7
+        - ARDUINO_UNO_D8
+        - ARDUINO_UNO_D9
+        - ARDUINO_UNO_D10
+        - ARDUINO_UNO_D14
+        - ARDUINO_UNO_D15
+        - ARDUINO_UNO_D16
+        - ARDUINO_UNO_D17
+        - ARDUINO_UNO_D18
+        - ARDUINO_UNO_D19
+        - STDIN
+        - STDOUT
+        - STDERR
+        - Heap: 65536
+
+  packs:
+    - pack: Keil::STM32U5xx_DFP
+      path: ../../../../../Packs/STM32U5xx_DFP
+    - pack: Keil::B-U585I-IOT02A_BSP@1.0.0
+    - pack: ARM::CMSIS@5.9.0
+    - pack: ARM::CMSIS-View
+    - pack: ARM::CMSIS-Compiler
+
+  define:
+    - CMSIS_board_header: "\"B_U585I_IOT02A_DK.h\""
+    - MX_WIFI_SPI_FLOW_PIN: GPIO_PIN_15
+    - MX_WIFI_SPI_FLOW_PORT: GPIOG
+    - MX_WIFI_SPI_IRQ_PIN: GPIO_PIN_14
+    - MX_WIFI_SPI_IRQ_PORT: GPIOD
+    - MX_WIFI_SPI_IRQ: EXTI14_IRQn
+    - MX_WIFI_SPI_CS_PIN: GPIO_PIN_12
+    - MX_WIFI_SPI_CS_PORT: GPIOB
+    - MX_WIFI_RESET_PIN: GPIO_PIN_15
+    - MX_WIFI_RESET_PORT: GPIOF
+
+  components:
+    - component: Keil::Device:Startup&Source C
+    - component: ARM::CMSIS:CORE
+    - component: Device:CubeMX
+
+  generators:
+    options:
+    - generator: CubeMX
+      path: ../STM32CubeMX

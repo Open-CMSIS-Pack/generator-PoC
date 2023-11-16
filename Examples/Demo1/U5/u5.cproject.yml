@@ -1,0 +1,11 @@
+project:
+  processor:
+    trustzone: off
+  packs:
+    - pack: Keil::STM32U5xx_DFP
+      path: ../../../Packs/STM32U5xx_DFP
+
+  components:
+    - component: ARM::CMSIS:CORE
+    - component: Keil::Device:Startup&Source C
+    - component: Device:CubeMX

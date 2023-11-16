@@ -1,0 +1,23 @@
+solution:
+
+  created-for: CMSIS-Toolbox@2.0.0
+  cdefault:
+
+  packs:
+    - pack: Keil::B-U585I-IOT02A_BSP@1.0.0
+    - pack: ARM::CMSIS@5.9.0
+
+  target-types:
+    - type: B-U585I-IOT02A
+      board: STMicroelectronics::B-U585I-IOT02A
+  build-types:
+    - type: Debug
+      debug: on
+      optimize: none
+    - type: Release
+      debug: off
+      optimize: balanced
+
+  projects:
+    - project: ./secure/secure.cproject.yml
+    - project: ./nonsecure/nonsecure.cproject.yml

@@ -1,0 +1,5 @@
+project:
+  components:
+    - component: ARM::CMSIS:CORE
+    - component: Keil::Device:Startup
+    - component: Device:CubeMX

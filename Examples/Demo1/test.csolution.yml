@@ -1,0 +1,30 @@
+solution:
+
+  created-for: CMSIS-Toolbox@2.0.0
+  cdefault:
+
+  packs:
+    - pack: Keil::B-U585I-IOT02A_BSP@1.0.0
+    - pack: Keil::STM32H7xx_DFP
+      path: ../../Packs/STM32H7xx_DFP
+    - pack: ARM::CMSIS
+
+  target-types:
+    - type: Target_U5
+      board: STMicroelectronics::B-U585I-IOT02A
+    - type: Target_H7
+      device: STM32H723ZGTx
+
+  build-types:
+    - type: Debug
+      debug: on
+      optimize: none
+    - type: Release
+      debug: off
+      optimize: balanced
+
+  projects:
+    - project: ./U5/u5.cproject.yml
+      for-context: +Target_U5
+    - project: ./H7/h7.cproject.yml
+      for-context: +Target_H7

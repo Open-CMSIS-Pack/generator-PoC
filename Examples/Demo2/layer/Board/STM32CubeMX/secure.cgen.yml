@@ -1,0 +1,57 @@
+generator-import:
+  for-device: STM32U585AIIx
+  for-board: B-U585I-IOT02A
+  define:
+    - USE_HAL_DRIVER
+    - STM32U585xx
+    - USE_FULL_LL_DRIVER
+  add-path:
+    - ./Drivers/STM32U5xx_HAL_Driver/Inc
+    - ./Drivers/CMSIS/Device/ST/STM32U5xx/Include
+    - ./Drivers/STM32U5xx_HAL_Driver/Inc/Legacy
+    - ./Drivers/CMSIS/Include
+    - ./Secure/Inc
+    - ./Secure_nsclib
+  groups:
+    - group: CubeMX
+      files:
+        - file: ./Secure/Src/main.c
+        - file: ./Secure/Src/stm32u5xx_it.c
+        - file: ./Secure/Src/stm32u5xx_hal_msp.c
+        - file: ./Secure/Src/secure_nsc.c
+    - group: HAL Driver
+      files:
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_utils.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_exti.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_mdf.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c_ex.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_exti.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gtzc.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_icache.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_ospi.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_dlyb.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_ucpd.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_gpio.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_lpgpio.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_dma.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pcd.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pcd_ex.c
+        - file: ./Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_usb.c
